@@ -6,44 +6,31 @@ namespace IntegerToRoman
     public class SolutionTest
     {
         [Test]
-        public void Test_3()
+        [TestCase(3, "III")]
+        [TestCase(4, "IV")]
+        [TestCase(9, "IX")]
+        [TestCase(58, "LVIII")]
+        [TestCase(1994, "MCMXCIV")]
+        public void Test_Examples(int num, string expected)
         {
             var sol = new Solution();
-            var ret = sol.IntToRoman(3);
-
-            Assert.AreEqual(ret, "III");
+            var ret = sol.IntToRoman(num);
+            
+            Assert.AreEqual(ret, expected);
         }
-        public void Test_4()
+
+        [Test]
+        [TestCase(40, "XL")]
+        [TestCase(44, "XLIV")]
+        [TestCase(90, "XC")]
+        [TestCase(400, "CD")]
+        [TestCase(2000, "MM")]
+        public void Test_Special(int num, string expected)
         {
             var sol = new Solution();
-            var ret = sol.IntToRoman(3);
-
-            Assert.AreEqual(ret, "III");
+            var ret = sol.IntToRoman(num);
+            
+            Assert.AreEqual(ret, expected);
         }
-
-        public void Test_9()
-        {
-            var sol = new Solution();
-            var ret = sol.IntToRoman(9);
-
-            Assert.AreEqual(ret, "IX");
-        }
-
-        public void Test_58()
-        {
-            var sol = new Solution();
-            var ret = sol.IntToRoman(3);
-
-            Assert.AreEqual(ret, "LVIII");
-        }
-
-        public void Test_1994()
-        {
-            var sol = new Solution();
-            var ret = sol.IntToRoman(1994);
-
-            Assert.AreEqual(ret, "MCMXCIV");
-        }
-
     }
 }
